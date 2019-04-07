@@ -37,6 +37,8 @@ call plug#end()
 
 "Settings
 
+set noswapfile
+
 "Numbering
 set number
 set ruler
