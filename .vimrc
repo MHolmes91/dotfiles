@@ -33,6 +33,7 @@ call plug#begin('~/.vim/plugs')
 
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
+    Plug 'wellle/targets.vim'
 call plug#end()
 
 "Settings
@@ -70,17 +71,18 @@ let mapleader=","
 let g:airline_theme='dark'
 
 "NerdTree Open when no commands specified
-if !exists('g:gui_oni')
+if !exists('g:gui_oni') && !has("gui_vimr")
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 endif
 
 "Aliases
-command Ygt YcmCompleter GoTo
-command Ygd YcmCompleter GetDoc
-command Ygr YcmCompleter GoToReferences
+command! Ygt YcmCompleter GoTo
+command! Ygd YcmCompleter GetDoc
+command! Ygr YcmCompleter GoToReferences
 
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
 
 nnoremap <leader>g :Ygt<CR>
 nnoremap <leader>gd :Ygd<CR>
