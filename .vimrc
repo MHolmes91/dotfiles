@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugs')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'wellle/targets.vim'
+    Plug 'tpope/vim-sleuth'
 call plug#end()
 
 "Settings
@@ -46,9 +47,6 @@ set ruler
 
 "Spacing
 filetype indent on
-set expandtab
-set softtabstop=4
-set tabstop=4
 
 "Workspacing
 set hidden
@@ -68,10 +66,11 @@ set wildmenu
 let mapleader=","
 
 "Theme
+color elflord
 let g:airline_theme='dark'
 
 "NerdTree Open when no commands specified
-if !exists('g:gui_oni') && !has("gui_vimr")
+if !exists('g:gui_oni')
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 endif
@@ -82,6 +81,7 @@ command! Ygd YcmCompleter GetDoc
 command! Ygr YcmCompleter GoToReferences
 
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 
 nnoremap <leader>g :Ygt<CR>
