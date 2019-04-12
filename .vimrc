@@ -92,3 +92,4 @@ nnoremap <leader>t :NERDTreeFocus<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
 nnoremap <leader>tc :NERDTreeClose<CR>
 nnoremap <leader>td :NERDTreeCWD<CR>
+nnoremap <leader>tr :NERDTreeRefreshRoot<CR>
