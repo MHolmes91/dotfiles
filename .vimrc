@@ -83,6 +83,8 @@ command! Ygr YcmCompleter GoToReferences
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>c :Commits<CR>
+nnoremap <leader>cb :BCommits<CR>
 
 nnoremap <leader>g :Ygt<CR>
 nnoremap <leader>gd :Ygd<CR>
@@ -93,3 +95,6 @@ nnoremap <leader>tf :NERDTreeFind<CR>
 nnoremap <leader>tc :NERDTreeClose<CR>
 nnoremap <leader>td :NERDTreeCWD<CR>
 nnoremap <leader>tr :NERDTreeRefreshRoot<CR>
+
+nnoremap <leader>h :GitGutterNextHunk<CR>
+nnoremap <leader>H :GitGutterPrevHunk<CR>
