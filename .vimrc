@@ -35,6 +35,10 @@ call plug#begin('~/.vim/plugs')
     Plug 'tpope/vim-commentary'
     Plug 'wellle/targets.vim'
     Plug 'tpope/vim-sleuth'
+
+    Plug 'bkad/CamelCaseMotion'
+    Plug 'vim-scripts/argtextobj.vim'
+    Plug 'michaeljsmith/vim-indent-object'
 call plug#end()
 
 "Settings
@@ -98,3 +102,5 @@ nnoremap <leader>tr :NERDTreeRefreshRoot<CR>
 
 nnoremap <leader>h :GitGutterNextHunk<CR>
 nnoremap <leader>H :GitGutterPrevHunk<CR>
+
+command Sterm sp | wincmd w | resize 15 | term
