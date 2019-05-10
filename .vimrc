@@ -16,13 +16,11 @@ call plug#begin('~/.vim/plugs')
 
     Plug 'sheerun/vim-polyglot'
 
-    Plug 'w0rp/ale'
-
     if !exists('g:gui_oni')
         Plug 'scrooloose/nerdtree'
         Plug 'Xuyuanp/nerdtree-git-plugin'
 
-        Plug 'Valloric/YouCompleteMe', { 'do': 'npm install -g typescript'}
+        Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
     endif
 
     Plug 'airblade/vim-gitgutter'
@@ -79,20 +77,53 @@ if !exists('g:gui_oni')
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 endif
 
-"Aliases
-command! Ygt YcmCompleter GoTo
-command! Ygd YcmCompleter GetDoc
-command! Ygr YcmCompleter GoToReferences
+"CoC
+"https://github.com/neoclide/coc.nvim/blob/master/Readme.md#example-vim-configuration
+let g:coc_global_extensions='coc-css coc-html coc-json coc-pairs coc-tsserver coc-eslint coc-prettier'
+" Tab for completion
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+
+" Use K to show documentation in preview window
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+"Aliases
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>c :Commits<CR>
 nnoremap <leader>cb :BCommits<CR>
 
-nnoremap <leader>g :Ygt<CR>
-nnoremap <leader>gd :Ygd<CR>
-nnoremap <leader>gr :Ygr<CR>
+nmap <leader>g <Plug>(coc-definition)
+nnoremap <leader> gd :call <SID>show_documentation()<CR>
+nmap <leader>gt <Plug>(coc-type-definition)
+nmap <leader>gr <Plug>(coc-references)
+nmap <leader>gi <Plug>(coc-coc-implementation)
+nmap <leader> E <Plug>(coc-diagnostic-prev)
+nmap <leader> e <Plug>(coc-diagnostic-next)
 
 nnoremap <leader>t :NERDTreeFocus<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
