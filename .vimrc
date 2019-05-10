@@ -79,7 +79,8 @@ endif
 
 "CoC
 "https://github.com/neoclide/coc.nvim/blob/master/Readme.md#example-vim-configuration
-let g:coc_global_extensions='coc-css coc-html coc-json coc-pairs coc-tsserver coc-eslint coc-prettier'
+let g:coc_global_extensions=['coc-css','coc-html','coc-json','coc-pairs','coc-tsserver','coc-eslint','coc-prettier']
+
 " Tab for completion
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -117,8 +118,10 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>c :Commits<CR>
 nnoremap <leader>cb :BCommits<CR>
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 nmap <leader>g <Plug>(coc-definition)
-nnoremap <leader> gd :call <SID>show_documentation()<CR>
+nnoremap <leader>gd :call <SID>show_documentation()<CR>
 nmap <leader>gt <Plug>(coc-type-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>gi <Plug>(coc-coc-implementation)
