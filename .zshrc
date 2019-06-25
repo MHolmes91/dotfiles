@@ -14,6 +14,16 @@ export LANG=en_US.UTF-8
 #FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+fzrg() {
+  LOCATION=${1:-.}
+  rg "" $LOCATION | fzf
+}
+
+fzfind() {
+  LOCATION=${1:-.}
+  rg --files $LOCATION | fzf
+}
+
 #Added local bin
 export PATH=$PATH:$HOME/bin
 

@@ -47,6 +47,10 @@ set noswapfile
 set number
 set ruler
 
+"
+set title
+set titleold=
+
 "Spacing
 filetype indent on
 
