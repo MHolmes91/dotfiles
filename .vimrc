@@ -51,6 +51,8 @@ set ruler
 set title
 set titleold=
 
+set smartcase
+
 "Spacing
 filetype indent on
 
