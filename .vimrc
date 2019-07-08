@@ -20,7 +20,7 @@ call plug#begin('~/.vim/plugs')
         Plug 'scrooloose/nerdtree'
         Plug 'Xuyuanp/nerdtree-git-plugin'
 
-        Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
     endif
 
     Plug 'airblade/vim-gitgutter'
@@ -52,6 +52,10 @@ set title
 set titleold=
 
 set smartcase
+
+set updatetime=300
+
+set signcolumn=yes
 
 "Spacing
 filetype indent on
@@ -130,7 +134,7 @@ nmap <leader>g <Plug>(coc-definition)
 nnoremap <leader>gd :call <SID>show_documentation()<CR>
 nmap <leader>gt <Plug>(coc-type-definition)
 nmap <leader>gr <Plug>(coc-references)
-nmap <leader>gi <Plug>(coc-coc-implementation)
+nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader> E <Plug>(coc-diagnostic-prev)
 nmap <leader> e <Plug>(coc-diagnostic-next)
 
