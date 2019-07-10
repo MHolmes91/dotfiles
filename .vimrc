@@ -135,8 +135,8 @@ nnoremap <leader>gd :call <SID>show_documentation()<CR>
 nmap <leader>gt <Plug>(coc-type-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>gi <Plug>(coc-implementation)
-nmap <leader> E <Plug>(coc-diagnostic-prev)
-nmap <leader> e <Plug>(coc-diagnostic-next)
+nmap <leader>E <Plug>(coc-diagnostic-prev)
+nmap <leader>e <Plug>(coc-diagnostic-next)
 
 nnoremap <leader>t :NERDTreeFocus<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
