@@ -37,25 +37,31 @@ call plug#begin('~/.vim/plugs')
     Plug 'bkad/CamelCaseMotion'
     Plug 'vim-scripts/argtextobj.vim'
     Plug 'michaeljsmith/vim-indent-object'
+    Plug 'tpope/vim-repeat'
+    Plug 'justinmk/vim-sneak'
 call plug#end()
 
 "Settings
 
 set noswapfile
+set smartcase
 
 "Numbering
 set number
 set ruler
 
-"
+"Titling
 set title
 set titleold=
 
-set smartcase
-
+"Update more often so COC runs smoother
 set updatetime=300
 
+"Adds gutter
 set signcolumn=yes
+
+"Splitting
+set noea
 
 "Spacing
 filetype indent on
