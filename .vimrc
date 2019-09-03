@@ -29,6 +29,8 @@ call plug#begin('~/.vim/plugs')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
+    Plug 'arithran/vim-delete-hidden-buffers'
+
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'wellle/targets.vim'
@@ -95,7 +97,7 @@ endif
 
 "CoC
 "https://github.com/neoclide/coc.nvim/blob/master/Readme.md#example-vim-configuration
-let g:coc_global_extensions=['coc-css','coc-html','coc-json','coc-pairs','coc-tsserver','coc-eslint','coc-prettier']
+let g:coc_global_extensions=['coc-vetur','coc-svg','coc-angular','coc-css','coc-html','coc-json','coc-pairs','coc-tsserver','coc-eslint','coc-prettier']
 
 " Tab for completion
 inoremap <silent><expr> <TAB>
@@ -128,13 +130,18 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 "Aliases
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+endif
+
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>c :Commits<CR>
 nnoremap <leader>cb :BCommits<CR>
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 CocFormat :call CocAction('format')
+command! -nargs=0 CocOrganize :call CocAction('runCommand', 'editor.action.organizeImport')
 
 nmap <leader>g <Plug>(coc-definition)
 nnoremap <leader>gd :call <SID>show_documentation()<CR>
@@ -143,7 +150,8 @@ nmap <leader>gr <Plug>(coc-references)
 nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader>E <Plug>(coc-diagnostic-prev)
 nmap <leader>e <Plug>(coc-diagnostic-next)
-nmap <leader>p :Prettier<CR>
+nmap <leader>p :CocFormat<CR>
+nmap <leader>po :CocOrganize<CR>
 
 nnoremap <leader>t :NERDTreeFocus<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
