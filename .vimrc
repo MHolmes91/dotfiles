@@ -130,9 +130,9 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 "Aliases
-if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-endif
+" if has('nvim')
+"   tnoremap <Esc> <C-\><C-n>
+" endif
 
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>fg :GFiles<CR>
