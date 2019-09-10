@@ -23,6 +23,8 @@ call plug#begin('~/.vim/plugs')
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
     endif
 
+    Plug 'janko/vim-test'
+
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
 
@@ -95,6 +97,15 @@ if !exists('g:gui_oni')
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 endif
 
+" vim-test
+if has('nvim')
+  let test#strategy = "neovim"
+  let test#neovim#term_position = "vertical rightbelow"
+else
+  let test#strategy = "vimterminal"
+  let test#vim#term_position = "vertical rightbelow"
+endif
+
 "CoC
 "https://github.com/neoclide/coc.nvim/blob/master/Readme.md#example-vim-configuration
 let g:coc_global_extensions=['coc-vetur','coc-svg','coc-angular','coc-css','coc-html','coc-json','coc-pairs','coc-tsserver','coc-eslint','coc-prettier']
@@ -152,6 +163,13 @@ nmap <leader>E <Plug>(coc-diagnostic-prev)
 nmap <leader>e <Plug>(coc-diagnostic-next)
 nmap <leader>p :CocFormat<CR>
 nmap <leader>po :CocOrganize<CR>
+
+nnoremap <leader>T :TestLast<CR>
+nnoremap <leader>Tn :TestNearest<CR>
+nnoremap <leader>Tf :TestFile<CR>
+nnoremap <leader>Ts :TestSuite<CR>
+nnoremap <leader>Tl :TestLast<CR>
+nnoremap <leader>Tv :TestVisit<CR>
 
 nnoremap <leader>t :NERDTreeFocus<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
