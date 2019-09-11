@@ -33,6 +33,8 @@ call plug#begin('~/.vim/plugs')
 
     Plug 'arithran/vim-delete-hidden-buffers'
 
+    Plug 'myusuf3/numbers.vim'
+
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'wellle/targets.vim'
@@ -83,6 +85,9 @@ set hlsearch
 
 "Menu
 set wildmenu
+
+" numbers.vim
+let g:numbers_exclude = ['nerdtree', 'fugitive']
 
 "Mappings
 let mapleader=","
