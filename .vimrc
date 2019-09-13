@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugs')
 
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -47,7 +48,7 @@ call plug#begin('~/.vim/plugs')
     Plug 'justinmk/vim-sneak'
 call plug#end()
 
-"Settings
+" Settings
 
 set noswapfile
 set smartcase
@@ -95,6 +96,9 @@ let mapleader=","
 "Theme
 color elflord
 let g:airline_theme='dark'
+
+" No tildes at end of buffer
+highlight EndOfBuffer ctermfg=black ctermbg=black
 
 "NerdTree Open when no commands specified
 if !exists('g:gui_oni')
@@ -184,5 +188,20 @@ nnoremap <leader>tr :NERDTreeRefreshRoot<CR>
 
 nnoremap <leader>h :GitGutterNextHunk<CR>
 nnoremap <leader>H :GitGutterPrevHunk<CR>
+
+" Splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Easy windows
+nnoremap <leader>wc <C-W>c
+nnoremap <leader>wo <C-W>o
+
+nnoremap <leader>w+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <leader>w- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <leader>w< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+nnoremap <leader>w> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 
 command Sterm sp | wincmd w | resize 15 | term
