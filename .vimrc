@@ -203,5 +203,6 @@ nnoremap <leader>w+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <leader>w- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <leader>w< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 nnoremap <leader>w> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <leader>w= :wincmd =<CR>
 
 command Sterm sp | wincmd w | resize 15 | term
