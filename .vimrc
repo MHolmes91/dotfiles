@@ -36,6 +36,8 @@ call plug#begin('~/.vim/plugs')
 
     Plug 'myusuf3/numbers.vim'
 
+    Plug 'tpope/vim-dadbod'
+
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'wellle/targets.vim'
@@ -204,5 +206,8 @@ nnoremap <leader>w- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <leader>w< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 nnoremap <leader>w> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <leader>w= :wincmd =<CR>
+
+" Terminal exit
+:tnoremap <Esc> <C-\><C-n>
 
 command Sterm sp | wincmd w | resize 15 | term

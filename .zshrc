@@ -24,6 +24,11 @@ fzfind() {
   rg --files $LOCATION | fzf
 }
 
+termtitle() {
+  TERM_TITLE=${1:-Terminlul}
+  echo -n -e "\033]0;$TERM_TITLE\007"
+}
+
 #Added local bin
 export PATH=$PATH:$HOME/bin
 
