@@ -152,10 +152,6 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 "Aliases
-" if has('nvim')
-"   tnoremap <Esc> <C-\><C-n>
-" endif
-
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
@@ -208,6 +204,9 @@ nnoremap <leader>w> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <leader>w= :wincmd =<CR>
 
 " Terminal exit
-:tnoremap <Esc> <C-\><C-n>
+if has('nvim')
+  tnoremap <leader><Esc> <C-\><C-n>
+endif
+
 
 command Sterm sp | wincmd w | resize 15 | term
