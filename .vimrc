@@ -158,6 +158,7 @@ nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>c :Commits<CR>
 nnoremap <leader>cb :BCommits<CR>
+nnoremap <leader>rg :Rg<CR>
 
 command! -nargs=0 CocFormat :call CocAction('format')
 command! -nargs=0 CocOrganize :call CocAction('runCommand', 'editor.action.organizeImport')
