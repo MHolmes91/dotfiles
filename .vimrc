@@ -119,7 +119,7 @@ endif
 
 "CoC
 "https://github.com/neoclide/coc.nvim/blob/master/Readme.md#example-vim-configuration
-let g:coc_global_extensions=['coc-vetur','coc-svg','coc-angular','coc-css','coc-html','coc-json','coc-pairs','coc-tsserver','coc-eslint','coc-prettier']
+let g:coc_global_extensions=['coc-vetur','coc-svg','coc-angular','coc-css','coc-html','coc-json','coc-pairs','coc-tsserver','coc-eslint','coc-prettier', 'coc-tslint-plugin', 'coc-python', 'coc-markdownlint']
 
 " Tab for completion
 inoremap <silent><expr> <TAB>
@@ -169,7 +169,7 @@ nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader>E <Plug>(coc-diagnostic-prev)
 nmap <leader>e <Plug>(coc-diagnostic-next)
 nmap <leader>p :CocFormat<CR>
-nmap <leader>po :CocOrganize<CR>
+nmap <leader>o :CocOrganize<CR>
 
 nnoremap <leader>T :TestLast<CR>
 nnoremap <leader>Tn :TestNearest<CR>
