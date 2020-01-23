@@ -118,6 +118,7 @@ else
 endif
 
 "CoC
+"Make sure to run CocInstall when you first run
 "https://github.com/neoclide/coc.nvim/blob/master/Readme.md#example-vim-configuration
 let g:coc_global_extensions=['coc-vetur','coc-svg','coc-angular','coc-css','coc-html','coc-json','coc-pairs','coc-tsserver','coc-eslint','coc-prettier', 'coc-tslint-plugin', 'coc-python', 'coc-markdownlint']
 
