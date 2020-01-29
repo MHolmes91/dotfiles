@@ -88,6 +88,7 @@ set hlsearch
 
 "Menu
 set wildmenu
+highlight Pmenu ctermbg=234 ctermfg=7 guibg=234 guifg=7 cterm=italic gui=italic
 
 " numbers.vim
 let g:numbers_exclude = ['nerdtree', 'fugitive']
