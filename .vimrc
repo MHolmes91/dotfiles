@@ -100,6 +100,9 @@ let mapleader=","
 color elflord
 let g:airline_theme='dark'
 
+" Better split styling
+highlight VertSplit cterm=none ctermbg=none
+
 " No tildes at end of buffer
 highlight EndOfBuffer ctermfg=black ctermbg=black
 
