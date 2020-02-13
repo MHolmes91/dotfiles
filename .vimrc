@@ -16,12 +16,10 @@ call plug#begin('~/.vim/plugs')
 
     Plug 'sheerun/vim-polyglot'
 
-    if !exists('g:gui_oni')
-        Plug 'scrooloose/nerdtree'
-        Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'scrooloose/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
 
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    endif
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
@@ -98,24 +96,13 @@ color elflord
 let g:airline_theme='dark'
 
 "NerdTree Open when no commands specified
-if !exists('g:gui_oni')
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-endif
-
-" vim-test
-if has('nvim')
-  let test#strategy = "neovim"
-  let test#neovim#term_position = "vertical rightbelow"
-else
-  let test#strategy = "vimterminal"
-  let test#vim#term_position = "vertical rightbelow"
-endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 "CoC
 "Make sure to run CocInstall when you first run
 "https://github.com/neoclide/coc.nvim/blob/master/Readme.md#example-vim-configuration
-let g:coc_global_extensions=['coc-vetur','coc-svg','coc-angular','coc-css','coc-html','coc-json','coc-pairs','coc-tsserver','coc-eslint','coc-prettier','coc-python','coc-markdownlint']
+let g:coc_global_extensions=['coc-vetur','coc-svg','coc-angular','coc-css','coc-html','coc-json','coc-pairs','coc-tsserver','coc-eslint','coc-prettier','coc-python','coc-markdownlint','coc-jest']
 
 " Tab for completion
 inoremap <silent><expr> <TAB>
@@ -155,6 +142,7 @@ nnoremap <leader>c :Commits<CR>
 nnoremap <leader>cb :BCommits<CR>
 nnoremap <leader>rg :Rg<CR>
 
+" Coc
 command! -nargs=0 CocFormat :call CocAction('format')
 command! -nargs=0 CocOrganize :call CocAction('runCommand', 'editor.action.organizeImport')
 
@@ -181,6 +169,18 @@ xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
+
+" Jest
+" Run jest for current project
+command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+
+" Run jest for current file
+command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+
+" Run jest for current test
+nnoremap <leader>jt :call CocAction('runCommand', 'jest.singleTest')<CR>
+nnoremap <leader>ja :Jest<CR>
+nnoremap <leader>jf :JestCurrent<CR>
 
 nnoremap <leader>t :NERDTreeFocus<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
