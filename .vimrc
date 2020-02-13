@@ -168,8 +168,13 @@ nmap <leader>e <Plug>(coc-diagnostic-next)
 nmap <leader>p :CocFormat<CR>
 nmap <leader>o :CocOrganize<CR>
 nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>fx, <Plug>(coc-fix-current)
-"
+nmap <leader>fx <Plug>(coc-fix-current)
+
+" Mappings for code actions
+nmap <leader>ca <Plug>(coc-codeaction)
+xmap <leader>c <Plug>(coc-codeaction-selected)
+nmap <leader>c <Plug>(coc-codeaction-selected)
+
 " Create mappings for function text object, requires document symbols feature of languageserver.
 " function text objects
 xmap if <Plug>(coc-funcobj-i)
