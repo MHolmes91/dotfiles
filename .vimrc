@@ -88,7 +88,6 @@ set hlsearch
 
 "Menu
 set wildmenu
-highlight Pmenu ctermbg=234 ctermfg=7 guibg=234 guifg=7 cterm=italic gui=italic
 
 " numbers.vim
 let g:numbers_exclude = ['nerdtree', 'fugitive']
@@ -99,12 +98,6 @@ let mapleader=","
 "Theme
 color elflord
 let g:airline_theme='dark'
-
-" Better split styling
-highlight VertSplit cterm=none ctermbg=none
-
-" No tildes at end of buffer
-highlight EndOfBuffer ctermfg=black ctermbg=black
 
 "NerdTree Open when no commands specified
 if !exists('g:gui_oni')
@@ -214,5 +207,13 @@ if has('nvim')
   tnoremap <leader><Esc> <C-\><C-n>
 endif
 
-
+" Custom Commands
 command Sterm sp | wincmd w | resize 15 | term
+
+" Styling
+
+highlight Pmenu ctermbg=234 ctermfg=7 guibg=234 guifg=7 cterm=italic gui=italic
+" Better split styling
+highlight VertSplit cterm=none ctermbg=none
+" No tildes at end of buffer
+highlight EndOfBuffer ctermfg=black ctermbg=black
