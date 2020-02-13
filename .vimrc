@@ -23,8 +23,6 @@ call plug#begin('~/.vim/plugs')
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
     endif
 
-    Plug 'janko/vim-test'
-
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
@@ -169,13 +167,15 @@ nmap <leader>E <Plug>(coc-diagnostic-prev)
 nmap <leader>e <Plug>(coc-diagnostic-next)
 nmap <leader>p :CocFormat<CR>
 nmap <leader>o :CocOrganize<CR>
-
-nnoremap <leader>T :TestLast<CR>
-nnoremap <leader>Tn :TestNearest<CR>
-nnoremap <leader>Tf :TestFile<CR>
-nnoremap <leader>Ts :TestSuite<CR>
-nnoremap <leader>Tl :TestLast<CR>
-nnoremap <leader>Tv :TestVisit<CR>
+nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>fx, <Plug>(coc-fix-current)
+"
+" Create mappings for function text object, requires document symbols feature of languageserver.
+" function text objects
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
 
 nnoremap <leader>t :NERDTreeFocus<CR>
 nnoremap <leader>tf :NERDTreeFind<CR>
