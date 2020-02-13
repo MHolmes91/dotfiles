@@ -35,6 +35,6 @@ export PATH=$PATH:$HOME/bin
 export EDITOR='nvim'
 export VISUAL='code'
 
-alias terminal="open /Applications/Utilities/Terminal.app"
+alias terminal="open /Applications/iTerm.app"
 alias myip="curl https://api.ipify.org"
 alias nvimf="nvim \$(fzf)"
