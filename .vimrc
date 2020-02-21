@@ -147,7 +147,7 @@ command! -nargs=0 CocFormat :call CocAction('format')
 command! -nargs=0 CocOrganize :call CocAction('runCommand', 'editor.action.organizeImport')
 
 nmap <leader>g <Plug>(coc-definition)
-nnoremap <leader>gd :call <SID>show_documentation()<CR>
+nnoremap <leader>d :call <SID>show_documentation()<CR>
 nmap <leader>gt <Plug>(coc-type-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>gi <Plug>(coc-implementation)
