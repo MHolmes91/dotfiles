@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugs')
     Plug 'junegunn/fzf.vim'
 
     Plug 'sheerun/vim-polyglot'
+    Plug 'editorconfig/editorconfig-vim'
 
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -90,10 +91,6 @@ let g:numbers_exclude = ['nerdtree', 'fugitive']
 
 "Mappings
 let mapleader=","
-
-"Theme
-color elflord
-let g:airline_theme='dark'
 
 "NerdTree Open when no commands specified
 autocmd StdinReadPre * let s:std_in=1
@@ -214,6 +211,16 @@ endif
 
 " Custom Commands
 command Sterm sp | wincmd w | resize 15 | term
+command Vterm vsp | wincmd w | term
+
+" edit filename with different extension 
+for ext in ["html", "css", "js", "ts", "tsx", "jsx", "scss", "sass", "styl"]
+  exec 'command E'.ext.' e%<.'.ext
+endfor
+
+"Theme
+color elflord
+let g:airline_theme='dark'
 
 " Styling
 
@@ -222,3 +229,6 @@ highlight Pmenu ctermbg=234 ctermfg=7 guibg=234 guifg=7 cterm=italic gui=italic
 highlight VertSplit cterm=none ctermbg=none
 " No tildes at end of buffer
 highlight EndOfBuffer ctermfg=black ctermbg=black
+" gitgutter should have black background
+highlight SignColumn ctermbg=none
+
