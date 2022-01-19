@@ -15,11 +15,13 @@ call plug#begin('~/.vim/plugs')
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
 
+
     Plug 'sheerun/vim-polyglot'
     Plug 'editorconfig/editorconfig-vim'
 
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -46,6 +48,12 @@ call plug#begin('~/.vim/plugs')
     Plug 'michaeljsmith/vim-indent-object'
     Plug 'tpope/vim-repeat'
     Plug 'justinmk/vim-sneak'
+
+    " Requires nerd font
+    " https://github.com/ryanoasis/nerd-fonts#font-installation
+    " brew tap homebrew/cask-fonts; brew install --cask font-fira-code-nerd-font
+    " Either set guifont or set the default terminal font
+    Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Settings
