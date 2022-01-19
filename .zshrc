@@ -1,7 +1,13 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# Setup zprezto first before linking with source ~/Repo/location/dotfiles/.zshrc
+
+# git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+# setopt EXTENDED_GLOB
+# for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+#   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+# done
+
+# Added Homebrew bin
+export PATH="/opt/homebrew/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -29,7 +35,7 @@ termtitle() {
   echo -n -e "\033]0;$TERM_TITLE\007"
 }
 
-#Added local bin
+# Added local bin
 export PATH=$PATH:$HOME/bin
 
 export EDITOR='nvim'
