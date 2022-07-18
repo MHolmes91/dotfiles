@@ -39,7 +39,8 @@ termtitle() {
 export PATH=$PATH:$HOME/bin
 
 export EDITOR='nvim'
-export VISUAL='code'
+export VISUAL='nvim'
+export REACT_EDITOR='nvim'
 
 alias terminal="open /Applications/iTerm.app"
 alias myip="curl https://api.ipify.org"
