@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugs')
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'github/copilot.vim'
 
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
@@ -101,14 +102,10 @@ let g:numbers_exclude = ['nerdtree', 'fugitive']
 "Mappings
 let mapleader=","
 
-"NerdTree Open when no commands specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 "CoC
 "Make sure to run CocInstall when you first run
 "https://github.com/neoclide/coc.nvim/blob/master/Readme.md#example-vim-configuration
-let g:coc_global_extensions=['coc-vetur','coc-svg','coc-angular','coc-css','coc-html','coc-json','coc-pairs','coc-tsserver','coc-eslint','coc-prettier','coc-python','coc-markdownlint','coc-jest']
+let g:coc_global_extensions=['coc-vetur','coc-svg','coc-angular','coc-css','coc-html','coc-json','coc-pairs','coc-tsserver','coc-eslint','coc-prettier','coc-python','coc-markdownlint','coc-jest','coc-go']
 
 " Tab for completion
 inoremap <silent><expr> <TAB>
@@ -240,4 +237,3 @@ highlight VertSplit cterm=none ctermbg=none
 highlight EndOfBuffer ctermfg=black ctermbg=black
 " gitgutter should have black background
 highlight SignColumn ctermbg=none
-
