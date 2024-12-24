@@ -4,5 +4,6 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-map("n", "<Space>wtv", ":vsplit | terminal<CR>", opts)
-map("n", "<Space>wth", ":split | terminal<CR>", opts)
+map("n", "<leader>wtv", ":vsplit | terminal<CR>", opts)
+map("n", "<leader>wth", ":split | terminal<CR>", opts)
+map("t", "<leader><Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
