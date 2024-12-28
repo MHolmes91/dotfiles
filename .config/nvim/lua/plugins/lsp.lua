@@ -1,4 +1,4 @@
-local opts = { noremap = true, silent = true }
+local wk = require("which-key")
 
 local function quickfix()
   vim.lsp.buf.code_action({
@@ -9,4 +9,6 @@ local function quickfix()
   })
 end
 
-vim.keymap.set("n", "<leader>cq", quickfix, opts)
+wk.add({
+  { "<leader>cq", quickfix, desc = "Quick Fix", mode = "n", icon = "󰁨" },
+})
