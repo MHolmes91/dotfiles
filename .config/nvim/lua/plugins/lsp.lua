@@ -12,3 +12,5 @@ end
 wk.add({
   { "<leader>cq", quickfix, desc = "Quick Fix", mode = "n", icon = "󰁨" },
 })
+
+return {}

@@ -4,3 +4,5 @@ wk.add({
   { "<leader>wtv", ":vsplit | terminal<CR>", desc = "Vertical Terminal", mode = "n" },
   { "<leader>wth", ":split | terminal<CR>", desc = "Horizontal Terminal", mode = "n" },
 })
+
+return {}
