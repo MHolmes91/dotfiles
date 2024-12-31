@@ -8,7 +8,7 @@ return {
       table.insert(
         opts.adapters,
         require("neotest-jest")({
-          jestCommand = "rushx test",
+          jestCommand = "npm test --",
           env = { CI = true },
           cwd = function()
             return vim.fn.getcwd()
