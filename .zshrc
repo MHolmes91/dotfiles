@@ -1,4 +1,4 @@
-# Setup zprezto first before linking with source ~/Repo/location/dotfiles/.zshrc
+# Setup zprezto first before linking with source ~/Repo/location/dotfiles/.zshrc and ~/Repo/location/dotfiles/.zprofile
 
 # git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 # setopt EXTENDED_GLOB
@@ -9,9 +9,9 @@
 # Added Homebrew bin
 export PATH="/opt/homebrew/bin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Add ASDF
+export ASDF_DATA_DIR="/Users/markholmes/.asdf"
+export PATH=":$PATH:$ASDF_DATA_DIR/shims"
 
 #Language stuff
 export LC_ALL=en_US.UTF-8
