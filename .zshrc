@@ -10,7 +10,7 @@
 export PATH="/opt/homebrew/bin:$PATH"
 
 # Add ASDF
-export ASDF_DATA_DIR="/Users/markholmes/.asdf"
+export ASDF_DATA_DIR="$HOME/.asdf"
 export PATH=":$PATH:$ASDF_DATA_DIR/shims"
 
 #Language stuff
