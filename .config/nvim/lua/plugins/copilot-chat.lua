@@ -12,7 +12,7 @@ return {
       window = {
         width = 0.4,
       },
-      model = "claude-3.7-sonnet",
+      model = "claude-sonnet-4",
       context = "buffers",
     }
   end,
