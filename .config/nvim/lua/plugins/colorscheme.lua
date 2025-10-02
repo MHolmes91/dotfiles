@@ -17,12 +17,14 @@ return {
         colors.bg_dark = bg_dark
         colors.bg_dark1 = "#0C0E14"
         colors.bg_float = bg_dark
-        colors.bg_highlight = "#292e42"
+        -- colors.bg_highlight = "#292e42"
+        colors.bg_highlight = "#FFFFFF"
         colors.bg_popup = bg_dark
         colors.bg_search = "#3d59a1"
         colors.bg_sidebar = bg_dark
         colors.bg_statusline = bg_dark
-        colors.bg_visual = "#283457"
+        -- colors.bg_visual = "#283457"
+        colors.bg_visual = "#FFFFFF"
       end,
     },
   },
