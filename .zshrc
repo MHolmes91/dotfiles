@@ -6,12 +6,12 @@
 #   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 # done
 
-# Added Homebrew bin
-export PATH="/opt/homebrew/bin:$PATH"
-
 # Add ASDF
 export ASDF_DATA_DIR="$HOME/.asdf"
-export PATH=":$PATH:$ASDF_DATA_DIR/shims"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
+
+# Added local bin
+export PATH="$HOME/bin:$PATH"
 
 #Language stuff
 export LC_ALL=en_US.UTF-8
@@ -34,9 +34,6 @@ termtitle() {
   TERM_TITLE=${1:-Terminlul}
   echo -n -e "\033]0;$TERM_TITLE\007"
 }
-
-# Added local bin
-export PATH=$PATH:$HOME/bin
 
 export EDITOR='nvim'
 export VISUAL='nvim'

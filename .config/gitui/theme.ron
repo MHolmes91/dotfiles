@@ -1,0 +1,12 @@
+(
+  selected_tab: Yellow,
+  command_fg: Cyan,
+  selection_bg: Black,
+  text: Green,
+  commit_hash: Green,
+  branch: Magenta,
+  status_conflict: Red,
+  status_untracked: Blue,
+  status_modified: Yellow,
+  status_staged: Green,
+)
