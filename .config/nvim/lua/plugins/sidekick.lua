@@ -9,6 +9,13 @@ return {
       desc = "Sidekick Toggle",
     },
     {
+      "<leader>af",
+      function()
+        require("sidekick.cli").focus()
+      end,
+      desc = "Sidekick Focus",
+    },
+    {
       "<leader>ac",
       function()
         require("sidekick.cli").toggle({ name = "claude", focus = true })
@@ -21,7 +28,6 @@ return {
         require("sidekick.cli").toggle({ name = "codex", focus = true })
       end,
       desc = "Sidekick Codex Toggle",
-      icon = "Toggle",
     },
   },
 }
