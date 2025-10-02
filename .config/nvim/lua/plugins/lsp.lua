@@ -13,4 +13,11 @@ wk.add({
   { "<leader>cq", quickfix, desc = "Quick Fix", mode = "n", icon = "󰁨" },
 })
 
-return {}
+return {
+  "neovim/nvim-lspconfig",
+  opts = {
+    servers = {
+      copilot = {},
+    },
+  },
+}
