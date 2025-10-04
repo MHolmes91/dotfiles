@@ -1,10 +1,19 @@
-# Setup zprezto first before linking with source ~/Repo/location/dotfiles/.zshrc and ~/Repo/location/dotfiles/.zprofile
-
+# How to use:
+#
+# 1. Setup zprezto
+#
 # git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 # setopt EXTENDED_GLOB
 # for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 #   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 # done
+#
+# 2. Link files
+# After zprezto is setup then add the following lines to the bottom of their respective files
+#
+# source ~/Repo/location/dotfiles/.zshrc
+# source ~/Repo/location/dotfiles/.zprofile
+# source ~/Repo/location/dotfiles/.zpreztorc
 
 # Add ASDF
 export ASDF_DATA_DIR="$HOME/.asdf"
@@ -39,6 +48,5 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export REACT_EDITOR='nvim'
 
-alias terminal="open /Applications/iTerm.app"
 alias myip="curl https://api.ipify.org"
 alias nvimf="nvim \$(fzf)"
