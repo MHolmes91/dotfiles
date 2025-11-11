@@ -1,10 +1,15 @@
+local default_sidekick = vim.env.SIDEKICK_DEFAULT_NAME
+if not default_sidekick or default_sidekick == "" then
+  default_sidekick = "codex"
+end
+
 return {
   "folke/sidekick.nvim",
   keys = {
     {
       "<leader>aa",
       function()
-        require("sidekick.cli").toggle({ name = "claude", focus = true })
+        require("sidekick.cli").toggle({ name = default_sidekick, focus = true })
       end,
       desc = "Sidekick Toggle",
     },
