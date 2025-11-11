@@ -32,25 +32,39 @@ return {
         desc = "Sidekick Toggle",
       },
       {
+        "<leader>ad",
+        function()
+          require("sidekick.cli").send({ msg = "{diagnostics}" })
+        end,
+        desc = "Send Diagnostics",
+      },
+      {
+        "<leader>ap",
+        function()
+          require("sidekick.cli").send({ msg = "{file}" })
+        end,
+        desc = "Send Path",
+      },
+      {
+        "<leader>al",
+        function()
+          require("sidekick.cli").send({ msg = "{line}" })
+        end,
+        desc = "Send Line",
+      },
+      {
+        "<leader>ab",
+        function()
+          require("sidekick.cli").send({ msg = "{buffers}" })
+        end,
+        desc = "Send Buffers",
+      },
+      {
         "<leader>af",
         function()
           require("sidekick.cli").focus()
         end,
         desc = "Sidekick Focus",
-      },
-      {
-        "<leader>ac",
-        function()
-          require("sidekick.cli").toggle({ name = "claude", focus = true })
-        end,
-        desc = "Sidekick Claude Toggle *Default*",
-      },
-      {
-        "<leader>ax",
-        function()
-          require("sidekick.cli").toggle({ name = "codex", focus = true })
-        end,
-        desc = "Sidekick Codex Toggle",
       },
     }
   end,
