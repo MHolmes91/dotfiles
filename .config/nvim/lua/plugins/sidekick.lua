@@ -4,6 +4,7 @@ return {
   "folke/sidekick.nvim",
   opts = function(_, opts)
     asdf.export_latest("nodejs")
+    return opts
   end,
   keys = function()
     local default_sidekick = vim.env.SIDEKICK_DEFAULT_NAME
