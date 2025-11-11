@@ -16,6 +16,9 @@ local function trim_versions(lines)
 
   for i = #lines, 1, -1 do
     local version = vim.trim(lines[i] or "")
+    -- Remove leading asterisk that marks currently active version
+    version = version:gsub("^%*", "")
+    version = vim.trim(version) -- Trim again after removing asterisk
     if version ~= "" and version ~= "system" then
       return version
     end
@@ -27,13 +30,8 @@ function M.latest_installed(tool)
     return cache[tool]
   end
 
+  -- asdf list returns installed versions only, last line is the latest
   local version = trim_versions(systemlist({ "asdf", "list", tool }))
-  if not version then
-    local fallback = systemlist({ "asdf", "latest", tool })
-    if fallback and fallback[1] then
-      version = vim.trim(fallback[1])
-    end
-  end
 
   cache[tool] = version
   return version
@@ -42,6 +40,7 @@ end
 function M.export_version(tool, env_var, version)
   local target_version = version or M.latest_installed(tool)
   local target_env = env_var or "ASDF_NODEJS_VERSION"
+
   if target_version and target_env then
     vim.env[target_env] = target_version
   end
