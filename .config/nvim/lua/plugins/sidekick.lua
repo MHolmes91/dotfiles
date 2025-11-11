@@ -3,7 +3,7 @@ local asdf = require("config.asdf")
 return {
   "folke/sidekick.nvim",
   opts = function(_, opts)
-    asdf.export_latest("nodejs")
+    asdf.export_version("nodejs")
     return opts
   end,
   keys = function()

@@ -39,13 +39,13 @@ function M.latest_installed(tool)
   return version
 end
 
-function M.export_latest(tool, env_var)
-  local version = M.latest_installed(tool)
+function M.export_version(tool, env_var, version)
+  local target_version = version or M.latest_installed(tool)
   local target_env = env_var or "ASDF_NODEJS_VERSION"
-  if version and target_env then
-    vim.env[target_env] = version
+  if target_version and target_env then
+    vim.env[target_env] = target_version
   end
-  return version
+  return target_version
 end
 
 return M
