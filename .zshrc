@@ -1,52 +1,73 @@
-# How to use:
-#
-# 1. Setup zprezto
-#
-# git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-# setopt EXTENDED_GLOB
-# for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-#   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-# done
-#
-# 2. Link files
-# After zprezto is setup then add the following lines to the bottom of their respective files
-#
-# source ~/Repo/location/dotfiles/.zshrc
-# source ~/Repo/location/dotfiles/.zprofile
-# source ~/Repo/location/dotfiles/.zpreztorc
+# Bootstrap Zimfw instead of Prezto and keep custom shell helpers in one place.
 
-# Add ASDF
+# Paths and tooling
+if [[ -z "${DOTFILES_ROOT:-}" ]]; then
+  DOTFILES_ROOT="${${(%):-%N}:A:h}"
+fi
+if [[ -z "$DOTFILES_ROOT" || ! -d "$DOTFILES_ROOT" ]]; then
+  DOTFILES_ROOT="$HOME/Repositories/dotfiles"
+fi
 export ASDF_DATA_DIR="$HOME/.asdf"
-export PATH="$ASDF_DATA_DIR/shims:$PATH"
-
-# Added local bin
-export PATH="$HOME/bin:$PATH"
-
-#Language stuff
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-#FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-fzrg() {
-  LOCATION=${1:-.}
-  rg "" $LOCATION | fzf
-}
-
-fzfind() {
-  LOCATION=${1:-.}
-  rg --files $LOCATION | fzf
-}
-
-termtitle() {
-  TERM_TITLE=${1:-Terminlul}
-  echo -n -e "\033]0;$TERM_TITLE\007"
-}
-
+export PATH="$ASDF_DATA_DIR/shims:$HOME/bin:$PATH"
+export LC_ALL='en_US.UTF-8'
+export LANG='en_US.UTF-8'
 export EDITOR='nvim'
 export VISUAL='nvim'
 export REACT_EDITOR='nvim'
 
-alias myip="curl https://api.ipify.org"
-alias nvimf="nvim \$(fzf)"
+# Zimfw setup
+export ZIM_HOME="${ZDOTDIR:-$HOME}/.zim"
+export ZIM_CONFIG_FILE="${ZDOTDIR:-$HOME}/.zimrc"
+mkdir -p "$ZIM_HOME"
+if [[ ! -e "$ZIM_HOME/zimfw.zsh" ]]; then
+  if command -v curl >/dev/null 2>&1; then
+    curl -fsSL https://raw.githubusercontent.com/zimfw/zimfw/master/zimfw.zsh >| "$ZIM_HOME/zimfw.zsh"
+  else
+    printf 'zimfw.zsh is missing and curl is unavailable; install zimfw manually.\n' >&2
+  fi
+fi
+if [[ ! -x "$ZIM_HOME/zimfw.zsh" ]]; then
+  chmod +x "$ZIM_HOME/zimfw.zsh"
+fi
+if [[ -r "$ZIM_HOME/zimfw.zsh" ]]; then
+  if [[ ! "$ZIM_HOME/init.zsh" -nt "$ZIM_CONFIG_FILE" ]]; then
+    source "$ZIM_HOME/zimfw.zsh" init -q
+  fi
+  if [[ -r "$ZIM_HOME/init.zsh" ]]; then
+    source "$ZIM_HOME/init.zsh"
+  fi
+else
+  printf 'Zimfw bootstrap skipped because %s is missing.\n' "$ZIM_HOME/zimfw.zsh" >&2
+fi
+
+if [[ -f "$DOTFILES_ROOT/zsh/themes/prompt_holmes.zsh" ]]; then
+  source "$DOTFILES_ROOT/zsh/themes/prompt_holmes.zsh"
+fi
+
+# Shell behavior
+bindkey -v
+if (( ${+widgets[history-substring-search-up]} && ${+widgets[history-substring-search-down]} )); then
+  bindkey -M vicmd 'k' history-substring-search-up
+  bindkey -M vicmd 'j' history-substring-search-down
+  bindkey -M viins '^P' history-substring-search-up
+  bindkey -M viins '^N' history-substring-search-down
+fi
+
+# Quick helpers
+fzrg() {
+  local location=${1:-.}
+  rg "" "$location" | fzf
+}
+
+fzfind() {
+  local location=${1:-.}
+  rg --files "$location" | fzf
+}
+
+termtitle() {
+  local title=${1:-Terminal}
+  printf '\033]0;%s\007' "$title"
+}
+
+alias myip='curl https://api.ipify.org'
+alias nvimf='nvim $(fzf)'
