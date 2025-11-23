@@ -1,14 +1,5 @@
 # This Mark's configuration file for Ghostty.
 #
-# This template file has been automatically created at the following
-# path since Ghostty couldn't find any existing config files on your system:
-#
-#   /Users/mark/Library/Application Support/com.mitchellh.ghostty/config
-#
-# The template does not set any default options, since Ghostty ships
-# with sensible defaults for all options. Users should only need to set
-# options that they want to change from the default.
-#
 # Run `ghostty +show-config --default --docs` to view a list of
 # all available config options and their default values.
 #
@@ -23,5 +14,6 @@
 # reloaded while running; some only apply to new windows and others may require
 # a full restart to take effect.
 
-font-family = "FiraCode Nerd Font Mono"
+font-family = "FiraCode Nerd Font"
+font-size = 10
 theme = TokyoNight Night
