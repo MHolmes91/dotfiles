@@ -3,15 +3,19 @@ zmodule environment
 zmodule input
 zmodule utility
 zmodule termtitle
+zmodule run-help
 
 # Productivity
 zmodule git
 zmodule ssh
-zmodule homebrew
 zmodule fzf
 zmodule zsh-users/zsh-completions --fpath src
 zmodule completion
 zmodule zsh-users/zsh-autosuggestions
 zmodule zsh-users/zsh-history-substring-search
+
+# Platform-specific
+zmodule homebrew
+zmodule pacman
 
 # Prompt handled via zsh/themes/prompt_holmes.zsh
