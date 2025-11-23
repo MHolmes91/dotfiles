@@ -17,3 +17,6 @@
 font-family = "FiraCode Nerd Font"
 font-size = 10
 theme = TokyoNight Night
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
