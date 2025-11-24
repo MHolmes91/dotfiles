@@ -24,6 +24,18 @@ return {
         colors.bg_statusline = bg_dark
         colors.bg_visual = "#283457"
       end,
+      on_highlights = function(hl, c)
+        local bufferline_bg = "#0a0a0c"
+        -- Bufferline specific highlight groups
+        hl.BufferLineFill = { bg = bufferline_bg } -- background/fill area
+        hl.BufferLineBackground = { bg = bufferline_bg, fg = c.fg_dark } -- inactive buffers
+        hl.BufferLineBufferVisible = { bg = bufferline_bg, fg = c.fg_dark }
+        hl.BufferLineBufferSelected = { bg = c.bg, fg = c.blue, bold = true } -- active buffer
+        hl.BufferLineTab = { bg = bufferline_bg, fg = c.fg_dark }
+        hl.BufferLineTabSelected = { bg = c.bg, fg = c.blue }
+        hl.BufferLineTabSeparator = { bg = bufferline_bg, fg = bufferline_bg }
+        hl.BufferLineSeparator = { bg = bufferline_bg, fg = bufferline_bg }
+      end,
     },
   },
 }

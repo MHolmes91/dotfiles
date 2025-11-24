@@ -21,6 +21,7 @@ font-thicken = true
 font-thicken-strength = 0
 adjust-cell-width = -7%
 theme = TokyoNight Night
+window-padding-y = 0
 background = #16161e
 
 
