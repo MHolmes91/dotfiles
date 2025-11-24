@@ -15,7 +15,11 @@
 # a full restart to take effect.
 
 font-family = "FiraCode Nerd Font"
-font-size = 11
+font-family = "FiraCode Nerd Font Mono"
+font-size = 12
+font-thicken = true
+font-thicken-strength = 0
+adjust-cell-width = -7%
 theme = TokyoNight Night
 background = #16161e
 
