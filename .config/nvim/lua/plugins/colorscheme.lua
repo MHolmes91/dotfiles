@@ -26,7 +26,9 @@ return {
         colors.bg_visual = "#283457"
       end,
       on_highlights = function(hl, c)
-        local bufferline_bg = "#0C0C10"
+        -- local bufferline_bg = "#0C0C10"
+        local bufferline_bg = "#0A0A0C"
+
         -- Bufferline specific highlight groups
         hl.BufferLineFill = { bg = bufferline_bg } -- background/fill area
         hl.BufferLineBackground = { bg = bufferline_bg, fg = c.fg_dark } -- inactive buffers
