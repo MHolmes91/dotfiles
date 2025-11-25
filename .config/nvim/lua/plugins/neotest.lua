@@ -14,12 +14,29 @@ return {
       table.insert(
         opts.adapters,
         require("neotest-jest")({
-          jestCommand = "node_modules/.bin/jest",
+          -- jestCommand = "node_modules/.bin/jest",
+          -- or as a function for dynamic resolution:
+          jestCommand = function(file)
+            return require("neotest-jest.jest-util").getJestCommand(file)
+          end,
           env = { CI = true },
-          cwd = function()
+          -- cwd = function()
+          --   return vim.fn.getcwd()
+          -- end,
+          cwd = function(file)
+            -- Find the directory containing node_modules that has jest
+            local util = require("neotest-jest.util")
+            local cwd = file
+            while cwd ~= "/" do
+              local jest_binary = util.path.join(cwd, "node_modules", ".bin", "jest")
+              if util.path.exists(jest_binary) then
+                return cwd
+              end
+              cwd = util.path.dirname(cwd)
+            end
             return vim.fn.getcwd()
           end,
-          jest_test_discovery = false,
+          jest_test_discovery = true,
         })
       )
     end,

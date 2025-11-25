@@ -26,7 +26,9 @@ return {
         colors.bg_visual = "#283457"
       end,
       on_highlights = function(hl, c)
+        -- personal
         -- local bufferline_bg = "#0C0C10"
+        -- work (weird that this is different)
         local bufferline_bg = "#0A0A0C"
 
         -- Bufferline specific highlight groups

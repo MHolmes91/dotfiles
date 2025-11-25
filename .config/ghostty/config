@@ -24,6 +24,5 @@ theme = TokyoNight Night
 window-padding-y = 0
 background = #16161e
 
-
 # Slowdown mouse scrolling
 mouse-scroll-multiplier = 0.95
