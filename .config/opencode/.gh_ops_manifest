@@ -1,0 +1,16 @@
+command/issue-close.md
+command/issue-comment.md
+command/issue-reopen.md
+command/issue-view.md
+command/pr-checks.md
+command/pr-close.md
+command/pr-comment.md
+command/pr-open.md
+command/workflows-cancel.md
+command/workflows-list.md
+command/workflows-monitor.md
+command/workflows-runs.md
+command/workflows-trigger.md
+agent/gh-ops.md
+agent/gh-pr-issue-controller.md
+agent/gh-workflow-controller.md
