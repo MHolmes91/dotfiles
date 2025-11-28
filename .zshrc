@@ -53,6 +53,13 @@ if (( ${+widgets[history-substring-search-up]} && ${+widgets[history-substring-s
   bindkey -M viins '^N' history-substring-search-down
 fi
 
+# bun completions
+[ -s "/Users/mark/.bun/_bun" ] && source "/Users/mark/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 # Quick helpers
 fzrg() {
   local location=${1:-.}
