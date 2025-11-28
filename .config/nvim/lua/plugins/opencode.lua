@@ -9,9 +9,14 @@ return {
     },
     config = function()
       -- Basic options – you can customize later
-      vim.g.opencode_opts = {
-        -- leave empty for defaults; check plugin docs for advanced tuning
-      }
+      vim.g.opencode_opts = vim.tbl_deep_extend("force", {
+        provider = {
+          snacks = {
+            start_insert = false, -- keep OpenCode's terminal panes in normal mode when created
+            auto_insert = false, -- stay in normal mode when entering an existing OpenCode terminal
+          },
+        },
+      }, vim.g.opencode_opts or {})
 
       -- Needed so buffers reload when OpenCode edits files
       vim.o.autoread = true
@@ -25,9 +30,9 @@ return {
             local ft = vim.api.nvim_get_option_value("filetype", { buf = buf })
             if ft == "opencode_terminal" then
               vim.api.nvim_set_current_win(win)
-              if vim.api.nvim_get_option_value("buftype", { buf = buf }) == "terminal" then
-                vim.cmd("startinsert")
-              end
+              -- keep OpenCode focus pane readable with relative numbering
+              vim.api.nvim_set_option_value("number", true, { scope = "local", win = win })
+              vim.api.nvim_set_option_value("relativenumber", true, { scope = "local", win = win })
               break
             end
           end
@@ -79,7 +84,7 @@ return {
           end,
           mode = { "n", "x" },
           desc = "Send line/selection to OpenCode",
-          icon = "󰆴",
+          icon = "󰒊",
         },
         {
           "<leader>aop",
