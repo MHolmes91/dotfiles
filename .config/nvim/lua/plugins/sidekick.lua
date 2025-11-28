@@ -4,6 +4,13 @@ return {
   "folke/sidekick.nvim",
   opts = function(_, opts)
     asdf.export_version("nodejs")
+
+    -- Add line numbers to sidekick terminal via window options
+    opts.cli = opts.cli or {}
+    opts.cli.win = opts.cli.win or {}
+    opts.cli.win.wo = opts.cli.win.wo or {}
+    opts.cli.win.wo.relativenumber = true
+
     return opts
   end,
   keys = function()

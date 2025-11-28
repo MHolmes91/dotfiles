@@ -22,8 +22,8 @@ font-thicken-strength = 0
 adjust-cell-width = -7%
 theme = TokyoNight Night
 window-padding-y = 0
+window-colorspace=display-p3
 background = #16161e
-
 
 # Slowdown mouse scrolling
 mouse-scroll-multiplier = 0.95
