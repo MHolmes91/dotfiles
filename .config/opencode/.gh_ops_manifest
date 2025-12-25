@@ -1,3 +1,6 @@
+agent/gh-ops.md
+agent/gh-pr-issue-controller.md
+agent/gh-workflow-controller.md
 command/issue-close.md
 command/issue-comment.md
 command/issue-reopen.md
@@ -11,6 +14,5 @@ command/workflows-list.md
 command/workflows-monitor.md
 command/workflows-runs.md
 command/workflows-trigger.md
-agent/gh-ops.md
-agent/gh-pr-issue-controller.md
-agent/gh-workflow-controller.md
+skill/gh-pr-issue
+skill/gh-workflows
