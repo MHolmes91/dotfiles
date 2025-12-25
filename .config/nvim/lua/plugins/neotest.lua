@@ -2,10 +2,11 @@ return {
   {
     "nvim-neotest/neotest",
     -- See if we can change this after https://github.com/nvim-neotest/neotest/issues/531
-    commit = "52fca6717ef972113ddd6ca223e30ad0abb2800c",
+    -- commit = "52fca6717ef972113ddd6ca223e30ad0abb2800c",
     lazy = true,
     dependencies = {
       "haydenmeade/neotest-jest",
+      "arthur944/neotest-bun",
     },
     opts = function(_, opts)
       opts.discovery = {
@@ -39,6 +40,7 @@ return {
           jest_test_discovery = true,
         })
       )
+      table.insert(opts.adapters, require("neotest-bun")({}))
     end,
   },
 }
