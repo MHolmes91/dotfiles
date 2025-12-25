@@ -61,5 +61,12 @@
         }
       }
     }
+  },
+  "mcp": {
+    "brave-search": {
+      "type": "local",
+      "command": ["npx", "-y", "@brave/brave-search-mcp-server", "--transport", "stdio"],
+      "enabled": true
+    }
   }
 }
