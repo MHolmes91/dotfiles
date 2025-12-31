@@ -67,6 +67,11 @@
       "type": "local",
       "command": ["npx", "-y", "@brave/brave-search-mcp-server", "--transport", "stdio"],
       "enabled": true
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
     }
   }
 }
