@@ -10,8 +10,19 @@ return {
     },
     opts = function(_, opts)
       opts.discovery = {
-        enabled = false,
+        enabled = true,
       }
+      opts.summary = { expand_errors = true, follow = true }
+      table.insert(
+        opts.adapters,
+        require("neotest-bun")({
+          -- Only act as the adapter if a bun-specific file exists
+          cwd = function(path)
+            return require("neotest-bun.util").root(path)
+          end,
+          symbol_queries = true, -- Helps with discovery
+        })
+      )
       table.insert(
         opts.adapters,
         require("neotest-jest")({
@@ -19,6 +30,10 @@ return {
           -- or as a function for dynamic resolution:
           jestCommand = function(file)
             return require("neotest-jest.jest-util").getJestCommand(file)
+          end,
+          root = function(path)
+            local util = require("neotest-jest.util")
+            return util.root(path) -- looks for jest.config, package.json, etc.
           end,
           env = { CI = true },
           -- cwd = function()
@@ -40,7 +55,6 @@ return {
           jest_test_discovery = true,
         })
       )
-      table.insert(opts.adapters, require("neotest-bun")({}))
     end,
   },
 }
