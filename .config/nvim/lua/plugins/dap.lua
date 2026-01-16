@@ -17,7 +17,6 @@ return {
       for _, lang in ipairs(langs) do
         dap.configurations[lang] = dap.configurations[lang] or {}
 
-        -- Next.js server (attach, when started with --inspect=9230)
         table.insert(dap.configurations[lang], {
           type = "pwa-node",
           request = "attach",
@@ -32,30 +31,29 @@ return {
           skipFiles = { "<node_internals>/**", "node_modules/**" },
         })
 
-        -- Next.js client: Chrome launch
-        -- table.insert(dap.configurations[lang], {
-        --   type = "pwa-chrome",
-        --   request = "launch",
-        --   name = "Next.js client (Chrome)",
-        --   url = "http://localhost:3000",
-        --   webRoot = "${workspaceFolder}",
-        --   sourceMaps = true,
-        --   protocol = "inspector",
-        --   -- make it behave like your normal Chrome
-        --   runtimeExecutable = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-        --   userDataDir = false,
-        -- })
+        table.insert(dap.configurations[lang], {
+          type = "pwa-chrome",
+          request = "launch",
+          name = "Chrome - Launch",
+          url = "http://localhost:3000",
+          webRoot = "${workspaceFolder}",
+          protocol = "inspector",
+          port = 9222,
+          sourceMaps = true,
+          userDataDir = vim.fn.expand("~") .. "/.config/dap/pwa-chrome/user-data-dir",
+          skipFiles = { "<node_internals>/**", "node_modules/**" },
+        })
 
-        -- Next.js client: Chrome attach
         table.insert(dap.configurations[lang], {
           type = "pwa-chrome",
           request = "attach",
-          name = "Next.js client (Attach Chrome)",
+          name = "Chrome - Attach",
+          protocol = "inspector",
           port = 9222,
           url = "http://localhost:3000",
           webRoot = "${workspaceFolder}",
           sourceMaps = true,
-          protocol = "inspector",
+          skipFiles = { "<node_internals>/**", "node_modules/**" },
         })
       end
 
