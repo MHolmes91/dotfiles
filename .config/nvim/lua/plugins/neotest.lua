@@ -5,6 +5,7 @@ return {
     dependencies = {
       "haydenmeade/neotest-jest",
       "arthur944/neotest-bun",
+      "marilari88/neotest-vitest",
     },
     opts = function(_, opts)
       opts.discovery = {
@@ -24,6 +25,15 @@ return {
               return require("neotest-bun.util").root(path)
             end,
             symbol_queries = true,
+          })
+        )
+      elseif test_runner == "vitest" then
+        table.insert(
+          opts.adapters,
+          require("neotest-vitest")({
+            filter_dir = function(name)
+              return name ~= "node_modules"
+            end,
           })
         )
       elseif test_runner == "jest" then
