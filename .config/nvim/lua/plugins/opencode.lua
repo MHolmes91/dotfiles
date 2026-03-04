@@ -8,16 +8,6 @@ return {
       { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
     },
     config = function()
-      -- Basic options – you can customize later
-      vim.g.opencode_opts = vim.tbl_deep_extend("force", {
-        provider = {
-          snacks = {
-            start_insert = false, -- keep OpenCode's terminal panes in normal mode when created
-            auto_insert = false, -- stay in normal mode when entering an existing OpenCode terminal
-          },
-        },
-      }, vim.g.opencode_opts or {})
-
       -- Needed so buffers reload when OpenCode edits files
       vim.o.autoread = true
 
