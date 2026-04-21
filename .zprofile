@@ -6,6 +6,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
 
   # Homebrew
   eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  # Prefer user-installed tools over system-wide app symlinks.
+  export PATH="$HOME/bin:$PATH"
 fi
 
 #
