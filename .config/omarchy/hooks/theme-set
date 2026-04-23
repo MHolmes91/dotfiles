@@ -1,2 +1,3 @@
 #!/bin/bash
-pkill swaybg
+
+omarchy-theme-bg-set "$HOME/.config/omarchy/backgrounds/shared/black.png"
