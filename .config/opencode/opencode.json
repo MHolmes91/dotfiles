@@ -2,6 +2,37 @@
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
   "plugin": ["superpowers@git+https://github.com/obra/superpowers.git"],
+  "tools": {
+    "context7_*": false,
+    "brave-search_*": false,
+    "playwright_*": false,
+    "dokploy_*": false
+  },
+  "agent": {
+    "build": {
+      "tools": {
+        "context7_*": true,
+        "brave-search_*": true,
+        "playwright_*": true
+      }
+    },
+    "plan": {
+      "tools": {
+        "context7_*": true,
+        "brave-search_*": true,
+        "playwright_*": true
+      }
+    },
+    "bare": {
+      "tools": {}
+    },
+    "dokploy": {
+      "context7_*": true,
+      "brave-search_*": true,
+      "playwright_*": true,
+      "dokploy_*": true
+    }
+  },
   "mcp": {
     "brave-search": {
       "type": "local",
@@ -22,6 +53,11 @@
     "playwright": {
       "type": "local",
       "command": ["npx", "@playwright/mcp@latest"],
+      "enabled": true
+    },
+    "dokploy": {
+      "type": "local",
+      "command": ["npx", "-y", "@dokploy/mcp", "--transport", "stdio"],
       "enabled": true
     }
   }
