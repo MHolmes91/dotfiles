@@ -1,0 +1,22 @@
+{
+  "name": "everforest-light-soft",
+  "base": "light",
+  "overrides": {
+    "text": "#5c6a72",
+    "secondaryText": "#829181",
+    "dimText": "#a6b0a0",
+    "success": "#8da101",
+    "error": "#f85552",
+    "warning": "#dfa000",
+    "permission": "#3a94c5",
+    "autoAccept": "#35a77c",
+    "claude": "#df69ba",
+    "planMode": "#3a94c5",
+    "remember": "#f57d26",
+    "bashBorder": "#829181",
+    "diff.added": "#e5ecc5",
+    "diff.addedDimmed": "#eef1d8",
+    "diff.removed": "#fbe3da",
+    "diff.removedDimmed": "#f7eee6"
+  }
+}

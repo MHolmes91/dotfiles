@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "everforest",
     },
   },
   {
@@ -42,5 +42,39 @@ return {
         hl.BufferLineSeparator = { bg = bufferline_bg, fg = bufferline_bg }
       end,
     },
+  },
+  {
+    "sainnhe/everforest",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.o.background = "light"
+      vim.g.everforest_background = "soft"
+      vim.g.everforest_better_performance = 1
+      vim.g.everforest_enable_italic = 1
+      vim.g.everforest_diagnostic_text_highlight = 1
+      vim.g.everforest_diagnostic_line_highlight = 1
+      vim.g.everforest_diagnostic_virtual_text = "colored"
+
+      local bufferline_bg = "#efebd4" -- bg2
+      local selected_bg = "#fdf6e3"   -- bg0
+      local fg_dim = "#829181"        -- grey2
+      local blue = "#3a94c5"
+
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "everforest",
+        callback = function()
+          local set = vim.api.nvim_set_hl
+          set(0, "BufferLineFill", { bg = bufferline_bg })
+          set(0, "BufferLineBackground", { bg = bufferline_bg, fg = fg_dim })
+          set(0, "BufferLineBufferVisible", { bg = bufferline_bg, fg = fg_dim })
+          set(0, "BufferLineBufferSelected", { bg = selected_bg, fg = blue, bold = true })
+          set(0, "BufferLineTab", { bg = bufferline_bg, fg = fg_dim })
+          set(0, "BufferLineTabSelected", { bg = selected_bg, fg = blue })
+          set(0, "BufferLineTabSeparator", { bg = bufferline_bg, fg = bufferline_bg })
+          set(0, "BufferLineSeparator", { bg = bufferline_bg, fg = bufferline_bg })
+        end,
+      })
+    end,
   },
 }

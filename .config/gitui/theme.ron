@@ -1,6 +1,6 @@
 (
-    selection_bg: Some("#2d3f76"),
-    selection_fg: Some("#c8d3f5"),
-    cmdbar_bg: Some("#1b1d2b"),
-    cmdbar_extra_lines_bg: Some("#1b1d2b"),
+    selection_bg: Some("#efebd4"),
+    selection_fg: Some("#5c6a72"),
+    cmdbar_bg: Some("#f4f0d9"),
+    cmdbar_extra_lines_bg: Some("#f4f0d9"),
 )
