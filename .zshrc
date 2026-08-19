@@ -79,4 +79,5 @@ termtitle() {
 
 alias myip='curl https://api.ipify.org'
 alias nvimf='nvim $(fzf)'
+alias openf='open $(fzf)'
 alias cddf='cd ${DOTFILES_ROOT}'
