@@ -16,6 +16,7 @@ export VISUAL='nvim'
 export REACT_EDITOR='nvim'
 
 # Zimfw setup
+fpath+=("$DOTFILES_ROOT/zsh/completions")
 setopt PROMPT_SUBST
 export ZIM_HOME="${ZDOTDIR:-$HOME}/.zim"
 export ZIM_CONFIG_FILE="${ZDOTDIR:-$HOME}/.zimrc"
