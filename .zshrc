@@ -35,6 +35,14 @@ if [[ -r "$ZIM_HOME/zimfw.zsh" ]]; then
   if [[ ! "$ZIM_HOME/init.zsh" -nt "$ZIM_CONFIG_FILE" ]]; then
     source "$ZIM_HOME/zimfw.zsh" init -q
   fi
+  # Zimfw's completion module aborts before compinit when this marker exists but
+  # cannot be read, and its non-atomic write leaves it empty if the shell is
+  # killed mid-startup. Dropping an empty marker makes the module rebuild instead.
+  _zim_dat="${ZDOTDIR:-$HOME}/.zcompdump.dat"
+  if [[ -e "$_zim_dat" && ! -s "$_zim_dat" ]]; then
+    command rm -f "$_zim_dat"
+  fi
+  unset _zim_dat
   if [[ -r "$ZIM_HOME/init.zsh" ]]; then
     source "$ZIM_HOME/init.zsh"
   fi
@@ -55,8 +63,8 @@ if (( ${+widgets[history-substring-search-up]} && ${+widgets[history-substring-s
   bindkey -M viins '^N' history-substring-search-down
 fi
 
-# bun completions
-[ -s "/Users/mark/.bun/_bun" ] && source "/Users/mark/.bun/_bun"
+# bun completions; _bun calls compdef unguarded, so skip it when compinit never ran
+[[ -s "$HOME/.bun/_bun" ]] && (( $+functions[compdef] )) && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
