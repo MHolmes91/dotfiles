@@ -1,0 +1,12 @@
+#!/bin/sh
+# agent-manager runs the configured editor directly, with no shell and no
+# cwd of its own, so nvim inherits agent-manager's cwd instead of landing
+# where the argument points. cd first so :pwd, netrw and :! match it.
+target="$1"
+if [ -d "$target" ]; then
+  cd "$target" || exit 1
+  exec nvim .
+else
+  cd "$(dirname "$target")" || exit 1
+  exec nvim "$(basename "$target")"
+fi
