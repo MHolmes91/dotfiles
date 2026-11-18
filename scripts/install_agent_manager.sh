@@ -22,4 +22,4 @@ fi
 # Current releases store settings in state.db. Import only our explicit
 # preferences, preserving sessions and all unrelated user settings.
 agent-manager import --settings "$DOTFILES_DIR/.config/agent-manager/settings.json"
-echo "Agent Manager configured: Pi default, nvim-cd editor (F3)."
+echo "Agent Manager configured: Pi default, nvim-cd editor (Ctrl+N)."

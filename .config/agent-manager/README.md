@@ -18,5 +18,5 @@ Pi integration is injected automatically when the manager launches Pi; no
 manual global Pi extension or MCP setup is needed.
 
 Start with `agent-manager`. `n` creates a Pi session; Enter focuses it;
-Ctrl+Q or Ctrl+backslash returns to the list. F3 opens its directory in Neovim.
+Ctrl+Q or Ctrl+backslash returns to the list. Ctrl+N opens its directory in Neovim.
 Sessions persist on the private tmux server: `tmux -L agentmgr ls`.
