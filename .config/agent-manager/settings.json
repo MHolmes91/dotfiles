@@ -2,6 +2,15 @@
   "version": 1,
   "settings": {
     "default_tool": "pi",
-    "editor": "nvim-cd"
+    "editor": "nvim-cd",
+    "hidden_tools": "antigravity,claude,codex,command-code,cursor,gemini,grok,hermes,kiro,muse,omp,opencode",
+    "hide_header": "on",
+    "hide_stats": "on",
+    "keybindings.session": "{\"editor\":[\"ctrl+n\"]}",
+    "notify_finished": "on",
+    "quick_prompt_close": "close",
+    "review_scope": "branch",
+    "theme": "tokyo night",
+    "theme_auto": "on"
   }
 }
