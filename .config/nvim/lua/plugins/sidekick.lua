@@ -1,4 +1,8 @@
 local asdf = require("config.asdf")
+local default_sidekick = vim.env.SIDEKICK_DEFAULT_NAME
+if not default_sidekick or default_sidekick == "" then
+  default_sidekick = "pi"
+end
 
 return {
   "folke/sidekick.nvim",
@@ -14,11 +18,6 @@ return {
     return opts
   end,
   keys = function()
-    local default_sidekick = vim.env.SIDEKICK_DEFAULT_NAME
-    if not default_sidekick or default_sidekick == "" then
-      default_sidekick = "codex"
-    end
-
     return {
       {
         "<tab>",
@@ -41,35 +40,35 @@ return {
       {
         "<leader>ad",
         function()
-          require("sidekick.cli").send({ msg = "{diagnostics}" })
+          require("sidekick.cli").send({ name = default_sidekick, msg = "{diagnostics}" })
         end,
         desc = "Send Diagnostics",
       },
       {
         "<leader>ap",
         function()
-          require("sidekick.cli").send({ msg = "{file}" })
+          require("sidekick.cli").send({ name = default_sidekick, msg = "{file}" })
         end,
         desc = "Send Path",
       },
       {
         "<leader>al",
         function()
-          require("sidekick.cli").send({ msg = "{line}" })
+          require("sidekick.cli").send({ name = default_sidekick, msg = "{line}" })
         end,
         desc = "Send Line",
       },
       {
         "<leader>ab",
         function()
-          require("sidekick.cli").send({ msg = "{buffers}" })
+          require("sidekick.cli").send({ name = default_sidekick, msg = "{buffers}" })
         end,
         desc = "Send Buffers",
       },
       {
         "<leader>af",
         function()
-          require("sidekick.cli").focus()
+          require("sidekick.cli").focus({ name = default_sidekick })
         end,
         desc = "Sidekick Focus",
       },

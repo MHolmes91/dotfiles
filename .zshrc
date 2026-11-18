@@ -7,8 +7,15 @@ fi
 if [[ -z "$DOTFILES_ROOT" || ! -d "$DOTFILES_ROOT" ]]; then
   DOTFILES_ROOT="$HOME/Repositories/dotfiles"
 fi
-export ASDF_DATA_DIR="$HOME/.asdf"
-export PATH="$ASDF_DATA_DIR/shims:$HOME/bin:$PATH"
+typeset -U path PATH
+path=("$HOME/.local/bin" "$HOME/bin" $path)
+# Preserve existing asdf installations, including older shell-based releases.
+if (( $+commands[asdf] || $+functions[asdf] )) || [[ -d "${ASDF_DATA_DIR:-$HOME/.asdf}/shims" ]]; then
+  export ASDF_DATA_DIR="${ASDF_DATA_DIR:-$HOME/.asdf}"
+  path=("$ASDF_DATA_DIR/shims" $path)
+elif (( $+commands[mise] )); then
+  eval "$(mise activate zsh)"
+fi
 export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 export EDITOR='nvim'

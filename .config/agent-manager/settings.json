@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "settings": {
+    "default_tool": "pi",
+    "editor": "nvim-cd"
+  }
+}

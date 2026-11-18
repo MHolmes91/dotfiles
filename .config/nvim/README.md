@@ -6,9 +6,12 @@ Refer to the [documentation](https://lazyvim.github.io/installation) to get star
 
 - Code Nerd Font
   - `brew install --cask font-fira-code-nerd-font`
-- Opencode
-  - `brew install opencode`
-  - Login via `opencode auth login`
+- Pi AI companion (Node.js managed by mise or your preferred runtime manager)
+  - `npm install -g @earendil-works/pi-coding-agent`
+  - Run `pi`, then `/login` to authenticate.
+  - `<leader>aa` toggles Pi through Sidekick; `<leader>af` focuses it.
+  - `<leader>ad`, `<leader>ap`, `<leader>al`, `<leader>ab` send diagnostics, file path, line, or buffers.
+  - Optional `SIDEKICK_DEFAULT_NAME` overrides the default companion.
 - Finding
   - `brew install fzf ripgrep fd`
 - Lazygit

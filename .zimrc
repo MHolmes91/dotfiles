@@ -15,7 +15,11 @@ zmodule zsh-users/zsh-autosuggestions
 zmodule zsh-users/zsh-history-substring-search
 
 # Platform-specific
-zmodule homebrew
-zmodule pacman
+if [[ "$OSTYPE" == darwin* ]]; then
+  zmodule homebrew
+fi
+if (( $+commands[pacman] )); then
+  zmodule pacman
+fi
 
 # Prompt handled via zsh/themes/prompt_holmes.zsh

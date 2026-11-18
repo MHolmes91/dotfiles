@@ -38,6 +38,12 @@ function M.latest_installed(tool)
 end
 
 function M.export_version(tool, env_var, version)
+  -- Preserve asdf behavior when installed, even alongside mise. On mise-only
+  -- systems shims resolve project versions without legacy ASDF_* overrides.
+  if vim.fn.executable("asdf") ~= 1 then
+    return nil
+  end
+
   local target_version = version or M.latest_installed(tool)
   local target_env = env_var or "ASDF_NODEJS_VERSION"
 
